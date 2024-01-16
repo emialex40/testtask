@@ -18,7 +18,7 @@ remove_filter('comment_text_rss', 'wp_staticize_emoji');
 remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
 add_filter('tiny_mce_plugins', 'disable_wp_emojis_in_tinymce');
 
-//add_filter('show_admin_bar', '__return_false');
+add_filter('show_admin_bar', '__return_false');
 
 add_filter('pll_get_post_types', 'unset_cpt_pll', 10, 2);
 function unset_cpt_pll($post_types, $is_settings)
@@ -70,29 +70,7 @@ function svg_upload_allow($mimes)
 // thumbnails sizes
 add_theme_support('post-thumbnails');
 
-
 add_image_size('logo-thumb', 100, 59);
-add_image_size('hero-thumb', 140);
-add_image_size('gallery-thumb', 426);
-add_image_size('flags-thumb', 560);
-add_image_size('bigest-thumb', 1920);
-
-// acf option page include
-if (function_exists('acf_add_options_page')) {
-	acf_add_options_page(array(
-		'page_title' => 'General Settings',
-		'menu_title' => 'Theme Options',
-		'menu_slug' => 'theme-general-settings',
-		'capability' => 'edit_posts',
-		'redirect' => false
-	));
-}
-
-add_filter( 'site_transient_update_plugins', 'filter_plugin_updates' );
-function filter_plugin_updates( $value ) {
-	unset( $value->response['advanced-custom-fields-pro/acf.php'] );
-	return $value;
-}
 
 // phone format for links
 function phone_format($phone)

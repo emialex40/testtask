@@ -1,13 +1,8 @@
 
-
-</main>
-</div>
-</div>
-</div>
-
-<footer id="footer" class="footer bg_dark">
-<h2>Its footer</h2>
+<footer class="footer">
+    <div class="footer_copyrights">&copy; <?php echo date('Y') ?> All rights reserved.</div>
 </footer>
+</div>
 
 <?php wp_footer(); ?>
 </body>
